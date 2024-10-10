@@ -14,7 +14,7 @@ module "vpc" {
 
 module "ecs" {
   # source = "github.com/CDCgov/dibbs-aws//terraform/modules/ecs?ref=1484b28e75adccab1e7ceef3ed61890b8b01507e"
-  source = "../../dibbs-aws/terraform/modules/ecs"
+  source = "../dibbs-aws/terraform/modules/ecs"
   public_subnet_ids  = flatten(module.vpc.public_subnets)
   private_subnet_ids = flatten(module.vpc.private_subnets)
   vpc_id             = module.vpc.vpc_id
