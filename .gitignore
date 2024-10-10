@@ -1,0 +1,8 @@
+ecs/.terraform
+ecs/tmp*
+ecs/.env
+ecs/*.tfvars
+
+setup/.terraform
+setup/.env
+setup/*.tfvars

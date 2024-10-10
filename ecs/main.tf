@@ -6,15 +6,15 @@ module "vpc" {
   azs                = var.availability_zones
   private_subnets    = var.private_subnets
   public_subnets     = var.public_subnets
-  enable_nat_gateway = var.enable_nat_gateway
-  single_nat_gateway = var.single_nat_gateway
-  create_igw         = var.create_internet_gateway
+  enable_nat_gateway = true
+  single_nat_gateway = true
+  create_igw         = true
   tags               = local.tags
 }
 
 module "ecs" {
-  source = "github.com/CDCgov/dibbs-aws//terraform/modules/ecs?ref=b80e6ebd89b0aeed0652b4678102378598865a3e"
-
+  # source = "github.com/CDCgov/dibbs-aws//terraform/modules/ecs?ref=1484b28e75adccab1e7ceef3ed61890b8b01507e"
+  source = "../../dibbs-aws/terraform/modules/ecs"
   public_subnet_ids  = flatten(module.vpc.public_subnets)
   private_subnet_ids = flatten(module.vpc.private_subnets)
   vpc_id             = module.vpc.vpc_id
