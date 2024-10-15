@@ -144,7 +144,8 @@ else
 fi
 
 if [ "$CI" = false ]; then
-    terraform apply -var-file="$ENVIRONMENT.tfvars"
+    terraform destroy -var-file="$ENVIRONMENT.tfvars"
 else
     terraform apply -auto-approve -var-file="$ENVIRONMENT.tfvars"
 fi
+
